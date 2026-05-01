@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "CL",
+  "scopeName": "source.cl",
+  "patterns": [
+    {
+      "name": "comment.block.cl",
+      "begin": "/#@",
+      "end": "@#/"
+    },
+    {
+      "name": "comment.line.cl",
+      "match": "/#.*"
+    },
+    {
+      "name": "constant.numeric.cl",
+      "match": "/\\$.*\\$/"
+    },
+    {
+      "name": "keyword.control.cl",
+      "match": "\\.(install|ready|define)"
+    },
+    {
+      "name": "keyword.other.cl",
+      "match": "\\b(run|log|build|catch|import|with|from|once|is exactly|if|please|define|exactly)\\b"
+    },
+    {
+      "name": "string.quoted.single.cl",
+      "begin": "'",
+      "end": "'"
+    },
+    {
+      "name": "variable.interpolation.cl",
+      "begin": "\\{",
+      "end": "\\}"
+    },
+    {
+      "name": "comment.block.terminal.cl",
+      "begin": "term script",
+      "end": "\\z",
+      "contentName": "comment.line.cl"
+    }
+  ]
+}
