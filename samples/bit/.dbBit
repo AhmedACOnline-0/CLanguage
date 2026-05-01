@@ -1,0 +1,9 @@
+'folder' is 'samples/CL' #more
+  'folder.type' is 'project.using: CL'
+  'folder.whoCreated' is 'AhmedAC'
+  'folder.bits' is from 'binary'
+#end
+
+#more
+  create 'binary' as '8-bits'
+#end
