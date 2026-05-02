@@ -2,11 +2,12 @@
 .install runCL & type = 'api'
 .install discordJS & convert to: file.cl.discord & type = 'api'
 .install TagScript & type = 'import', 'variable'
+.install SFfCF & type = 'os', 'permission', 'api'
 with discordCL: please run; {
   x(client.define)
   if runCL is exactly 'installed', run: {
-    define token = 'TOKEN-HERE' /# though this should be secret to the public!
-    define clientID = 'CLIENT-ID-HERE'
+    publicDefine token = 'TOKEN-HERE' /# though this should be secret to the public!
+    publicDefine clientID = 'CLIENT-ID-HERE'
   }
 }
 once discordJS & runCL is exactly 'ready', try: {
@@ -30,6 +31,16 @@ from discordCL, build: {
 
 from discordCL, token for 'bot/Dylo' is :token
 from discordCL, client.id for 'bot/Dylo' is :clientID
+
+from SFfCF: search file '.env'; {
+  if it is exactly 'missing', run: {
+    logErrorMD ERROR!!!\nThe `.env` file is missing.
+    log Creating file in current folder...\nCurrent folder: :TagScript.{relCurrentFolder}
+    from SFfCF, create file '.env'; contents {
+      discord_token: :token
+    }
+  }
+}
 
 /$ CL 1.2 $/
 term script
